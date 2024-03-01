@@ -1,0 +1,18 @@
+<!DOCTYPE html> 
+<html xmlns="w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
+    <head> 
+            <title>Biblioteca SENAC EAD</title> 
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    </head> 
+    <body>
+        <h1 th:if="${livro.id==null}">Cadastro de Livro</h1> 
+      <h1 th:if="${livro.id>0}">Alterar de Livro</h1> 
+        <form th:action="@{/gravar}" th:object="${livro}" method="POST"> 
+            <p>Nome: <input type="text" th:field="${livro.nome}" /> </p> 
+            <p>Autor <input type="text" th:field="${livro.autor}" /></p> 
+         <input type="hidden" th:field="${livro.id}" />
+            <p><input type="submit" value="Gravar" /></p> 
+        </form>         
+      <a th:href="@{/}">Voltar</a>
+    </body>
+</html>
